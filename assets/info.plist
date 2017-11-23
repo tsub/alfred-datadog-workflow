@@ -8,11 +8,37 @@
 	<string>Internet</string>
 	<key>connections</key>
 	<dict>
+		<key>AF3E6ECE-B53A-49DD-962A-81B3C88A8026</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>26F7BC49-EF92-4D7B-898C-3BF54C73ADDB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>B5296C9C-EEE3-4B2B-8B9E-7F8584767EE8</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>11D5721D-E45C-4D45-82C8-2CC370002271</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F6C308D6-41D4-4138-A866-A87E0A672537</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>24FFC38E-C74C-4B4D-BF4C-D06131BAB026</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -59,8 +85,10 @@
 				<string></string>
 				<key>script</key>
 				<string>query=$1
+apikey=$(security find-generic-password -a $USER -s dd-api-key -w)
+appkey=$(security find-generic-password -a $USER -s dd-app-key -w)
 
-./alfred-datadog-workflow $query</string>
+./alfred-datadog-workflow --apikey=$apikey --appkey=$appkey $query</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -100,6 +128,94 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>datadog apikey</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Datadog api key</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>AF3E6ECE-B53A-49DD-962A-81B3C88A8026</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>security add-generic-password -a $USER -s dd-api-key -w $1 -U</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>26F7BC49-EF92-4D7B-898C-3BF54C73ADDB</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>security add-generic-password -a $USER -s dd-app-key -w $1 -U</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>24FFC38E-C74C-4B4D-BF4C-D06131BAB026</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>datadog appkey</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Datadog application key</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>F6C308D6-41D4-4138-A866-A87E0A672537</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -112,12 +228,40 @@
 			<key>ypos</key>
 			<integer>50</integer>
 		</dict>
+		<key>24FFC38E-C74C-4B4D-BF4C-D06131BAB026</key>
+		<dict>
+			<key>xpos</key>
+			<integer>270</integer>
+			<key>ypos</key>
+			<integer>310</integer>
+		</dict>
+		<key>26F7BC49-EF92-4D7B-898C-3BF54C73ADDB</key>
+		<dict>
+			<key>xpos</key>
+			<integer>270</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
+		<key>AF3E6ECE-B53A-49DD-962A-81B3C88A8026</key>
+		<dict>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
 		<key>B5296C9C-EEE3-4B2B-8B9E-7F8584767EE8</key>
 		<dict>
 			<key>xpos</key>
 			<integer>50</integer>
 			<key>ypos</key>
 			<integer>50</integer>
+		</dict>
+		<key>F6C308D6-41D4-4138-A866-A87E0A672537</key>
+		<dict>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>310</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
