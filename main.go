@@ -2,8 +2,10 @@ package main
 
 import (
 	"flag"
+	"fmt"
 
 	"github.com/deanishe/awgo"
+	"github.com/zorkian/go-datadog-api"
 )
 
 func run() {
@@ -19,7 +21,20 @@ func run() {
 		return
 	}
 
-	wf.NewItem("First result!!").Subtitle("subtitle")
+	d := datadog.NewClient(*apiKey, *appKey)
+
+	switch flag.Arg(0) {
+	case "dashboard":
+		dashboards, err := d.GetDashboards()
+		if err != nil {
+			wf.FatalError(err)
+		}
+
+		for _, dash := range dashboards {
+			url := fmt.Sprintf("https://app.datadoghq.com/dash/%d/datadog", dash.GetId())
+			wf.NewItem(dash.GetTitle()).Arg(url).Valid(true)
+		}
+	}
 
 	wf.WarnEmpty("No matching", "Try a different query")
 	wf.SendFeedback()

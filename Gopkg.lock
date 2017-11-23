@@ -2,10 +2,28 @@
 
 
 [[projects]]
+  name = "github.com/cenkalti/backoff"
+  packages = ["."]
+  revision = "61153c768f31ee5f130071d08fc82b85208528de"
+  version = "v1.1.0"
+
+[[projects]]
   name = "github.com/deanishe/awgo"
   packages = [".","fuzzy","util"]
   revision = "b5dde3a4a8e1e9ae7256f3c714e8557ba08208b6"
   version = "v0.12"
+
+[[projects]]
+  name = "github.com/zorkian/go-datadog-api"
+  packages = ["."]
+  revision = "6db99b254ab9c82020abcdc8f702f6075f438603"
+  version = "v2.5"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/net"
+  packages = ["context"]
+  revision = "c7086645de248775cbf2373cf5ca4d2fa664b8c1"
 
 [[projects]]
   branch = "master"
@@ -16,6 +34,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "28c22fde970417d8ccde2b516c72a24edbdf2f429a53d104fab1e5616ba3dd05"
+  inputs-digest = "447c6ebbdd63c989fe45d2b9df0ef60c67e0f0a4ab98416ee63aa22e898851a8"
   solver-name = "gps-cdcl"
   solver-version = 1

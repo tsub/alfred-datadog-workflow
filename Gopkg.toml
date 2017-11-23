@@ -23,3 +23,7 @@ version = "0.12"
 #  name = "github.com/x/y"
 #  version = "2.4.0"
 
+
+[[constraint]]
+  name = "github.com/zorkian/go-datadog-api"
+  version = "2.5.0"
