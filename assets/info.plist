@@ -70,6 +70,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>93B04C42-4A22-455B-8F58-D80458B64E59</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>11D5721D-E45C-4D45-82C8-2CC370002271</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>95872A64-6890-457D-9CD3-ACC3BACF93A3</key>
 		<array>
 			<dict>
@@ -96,6 +109,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>ADDDD7F5-AA54-4471-8D22-1817603F5B05</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>93B04C42-4A22-455B-8F58-D80458B64E59</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>DAA65E31-1E52-44A1-81DE-7E42FB5205C9</key>
 		<array>
 			<dict>
@@ -113,7 +139,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>11D5721D-E45C-4D45-82C8-2CC370002271</string>
+				<string>93B04C42-4A22-455B-8F58-D80458B64E59</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -200,6 +226,65 @@ appkey=$(security find-generic-password -a $USER -s dd-app-key -w)
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>E979EF7F-C237-48FE-A69D-87CE0CC9BB9E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.junction</string>
+			<key>uid</key>
+			<string>93B04C42-4A22-455B-8F58-D80458B64E59</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>datadog monitor</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>query=$1
+apikey=$(security find-generic-password -a $USER -s dd-api-key -w)
+appkey=$(security find-generic-password -a $USER -s dd-app-key -w)
+
+./alfred-datadog-workflow --apikey=$apikey --appkey=$appkey monitor</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Open a monitor url</string>
+				<key>title</key>
+				<string>datadog monitor</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>ADDDD7F5-AA54-4471-8D22-1817603F5B05</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -296,6 +381,24 @@ appkey=$(security find-generic-password -a $USER -s dd-app-key -w)
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict>
+					<key>action</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>6EB35D73-94AA-4755-915A-83AE97133DC5</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>inputstring</key>
 				<string>{var:action}</string>
 				<key>matchcasesensitive</key>
@@ -309,24 +412,6 @@ appkey=$(security find-generic-password -a $USER -s dd-app-key -w)
 			<string>alfred.workflow.utility.filter</string>
 			<key>uid</key>
 			<string>79780F43-7A21-4645-A516-EFB5FBEB8D1B</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>variables</key>
-				<dict>
-					<key>action</key>
-					<string>{query}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>6EB35D73-94AA-4755-915A-83AE97133DC5</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -408,63 +493,77 @@ appkey=$(security find-generic-password -a $USER -s dd-app-key -w)
 			<key>xpos</key>
 			<integer>700</integer>
 			<key>ypos</key>
-			<integer>340</integer>
+			<integer>460</integer>
 		</dict>
 		<key>26F7BC49-EF92-4D7B-898C-3BF54C73ADDB</key>
 		<dict>
 			<key>xpos</key>
 			<integer>700</integer>
 			<key>ypos</key>
-			<integer>210</integer>
+			<integer>330</integer>
 		</dict>
 		<key>27F65142-B741-4913-A360-E774759C7DD6</key>
 		<dict>
 			<key>xpos</key>
 			<integer>530</integer>
 			<key>ypos</key>
-			<integer>210</integer>
+			<integer>330</integer>
 		</dict>
 		<key>6EB35D73-94AA-4755-915A-83AE97133DC5</key>
 		<dict>
 			<key>xpos</key>
 			<integer>330</integer>
 			<key>ypos</key>
-			<integer>240</integer>
+			<integer>360</integer>
 		</dict>
 		<key>7965E27F-15DB-4586-851D-25FB5FE85140</key>
 		<dict>
 			<key>xpos</key>
 			<integer>430</integer>
 			<key>ypos</key>
-			<integer>370</integer>
+			<integer>490</integer>
 		</dict>
 		<key>79780F43-7A21-4645-A516-EFB5FBEB8D1B</key>
 		<dict>
 			<key>xpos</key>
 			<integer>430</integer>
 			<key>ypos</key>
-			<integer>240</integer>
+			<integer>360</integer>
+		</dict>
+		<key>93B04C42-4A22-455B-8F58-D80458B64E59</key>
+		<dict>
+			<key>xpos</key>
+			<integer>330</integer>
+			<key>ypos</key>
+			<integer>90</integer>
 		</dict>
 		<key>95872A64-6890-457D-9CD3-ACC3BACF93A3</key>
 		<dict>
 			<key>xpos</key>
 			<integer>530</integer>
 			<key>ypos</key>
-			<integer>340</integer>
+			<integer>460</integer>
 		</dict>
 		<key>9CD1DD02-5C2E-4E32-AD22-B8335000FD47</key>
 		<dict>
 			<key>xpos</key>
 			<integer>30</integer>
 			<key>ypos</key>
-			<integer>210</integer>
+			<integer>330</integer>
+		</dict>
+		<key>ADDDD7F5-AA54-4471-8D22-1817603F5B05</key>
+		<dict>
+			<key>xpos</key>
+			<integer>30</integer>
+			<key>ypos</key>
+			<integer>190</integer>
 		</dict>
 		<key>DAA65E31-1E52-44A1-81DE-7E42FB5205C9</key>
 		<dict>
 			<key>xpos</key>
 			<integer>180</integer>
 			<key>ypos</key>
-			<integer>210</integer>
+			<integer>330</integer>
 		</dict>
 		<key>E979EF7F-C237-48FE-A69D-87CE0CC9BB9E</key>
 		<dict>

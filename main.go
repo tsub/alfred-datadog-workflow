@@ -34,6 +34,16 @@ func run() {
 			url := fmt.Sprintf("https://app.datadoghq.com/dash/%d/datadog", dash.GetId())
 			wf.NewItem(dash.GetTitle()).Subtitle(url).Arg(url).Valid(true)
 		}
+	case "monitor":
+		monitors, err := d.GetMonitors()
+		if err != nil {
+			wf.FatalError(err)
+		}
+
+		for _, moni := range monitors {
+			url := fmt.Sprintf("https://app.datadoghq.com/monitors#%d", moni.GetId())
+			wf.NewItem(moni.GetName()).Subtitle(url).Arg(url).Valid(true)
+		}
 	}
 
 	wf.WarnEmpty("No matching", "Try a different query")
