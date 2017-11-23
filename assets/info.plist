@@ -188,7 +188,7 @@ appkey=$(security find-generic-password -a $USER -s dd-app-key -w)
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string></string>
+				<string>Open a dashboard url</string>
 				<key>title</key>
 				<string>datadog dashboard</string>
 				<key>type</key>
@@ -211,7 +211,7 @@ appkey=$(security find-generic-password -a $USER -s dd-app-key -w)
 				<key>keyword</key>
 				<string>datadog auth</string>
 				<key>subtext</key>
-				<string></string>
+				<string>Authenticates Datadog</string>
 				<key>text</key>
 				<string>datadog auth</string>
 				<key>withspace</key>
@@ -257,7 +257,7 @@ appkey=$(security find-generic-password -a $USER -s dd-app-key -w)
 				<key>fixedorder</key>
 				<false/>
 				<key>items</key>
-				<string>[{"title":"apikey","arg":"apikey"},{"title":"appkey","arg":"appkey"}]</string>
+				<string>[{"title":"apikey","arg":"apikey","subtitle":"Datadog api key"},{"title":"appkey","arg":"appkey","subtitle":"Datadog application key"}]</string>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>subtext</key>

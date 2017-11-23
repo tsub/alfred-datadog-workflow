@@ -32,7 +32,7 @@ func run() {
 
 		for _, dash := range dashboards {
 			url := fmt.Sprintf("https://app.datadoghq.com/dash/%d/datadog", dash.GetId())
-			wf.NewItem(dash.GetTitle()).Arg(url).Valid(true)
+			wf.NewItem(dash.GetTitle()).Subtitle(url).Arg(url).Valid(true)
 		}
 	}
 
