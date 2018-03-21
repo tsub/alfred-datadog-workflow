@@ -9,7 +9,11 @@
 
 [[projects]]
   name = "github.com/deanishe/awgo"
-  packages = [".","fuzzy","util"]
+  packages = [
+    ".",
+    "fuzzy",
+    "util"
+  ]
   revision = "b5dde3a4a8e1e9ae7256f3c714e8557ba08208b6"
   version = "v0.12"
 
@@ -28,12 +32,19 @@
 [[projects]]
   branch = "master"
   name = "golang.org/x/text"
-  packages = ["internal/gen","internal/triegen","internal/ucd","transform","unicode/cldr","unicode/norm"]
+  packages = [
+    "internal/gen",
+    "internal/triegen",
+    "internal/ucd",
+    "transform",
+    "unicode/cldr",
+    "unicode/norm"
+  ]
   revision = "88f656faf3f37f690df1a32515b479415e1a6769"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "447c6ebbdd63c989fe45d2b9df0ef60c67e0f0a4ab98416ee63aa22e898851a8"
+  inputs-digest = "29be7ea246559cd730017d418254f35a821aa0d49d15d82064bea99be0d98508"
   solver-name = "gps-cdcl"
   solver-version = 1
