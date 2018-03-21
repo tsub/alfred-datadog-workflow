@@ -20,17 +20,16 @@
 [[projects]]
   name = "github.com/zorkian/go-datadog-api"
   packages = ["."]
-  revision = "6db99b254ab9c82020abcdc8f702f6075f438603"
-  version = "v2.5"
+  revision = "fa40c76e4030afa1f7fe07bfbc92f01f22c9f40e"
+  version = "v2.8.3"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/net"
   packages = ["context"]
-  revision = "c7086645de248775cbf2373cf5ca4d2fa664b8c1"
+  revision = "6078986fec03a1dcc236c34816c71b0e05018fda"
 
 [[projects]]
-  branch = "master"
   name = "golang.org/x/text"
   packages = [
     "internal/gen",
@@ -40,7 +39,8 @@
     "unicode/cldr",
     "unicode/norm"
   ]
-  revision = "88f656faf3f37f690df1a32515b479415e1a6769"
+  revision = "f21a4dfb5e38f5895301dc265a8def02365cc3d0"
+  version = "v0.3.0"
 
 [solve-meta]
   analyzer-name = "dep"
